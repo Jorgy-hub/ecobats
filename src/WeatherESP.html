@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+  <style>
+    .img {
+      height: 10px;
+      width: 10px;
+      margin-top: 32px;
+      margin-left: 32px;
+      fill: white;
+    }
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    svg:hover {
+      fill: red;
+    }
+
+    .slider {
+      height: 50px;
+
+    }
+
+    .temperatura {
+      height: 200px;
+      margin-bottom: 80px;
+      width: 350px;
+      position: relative;
+      background-color: pink;
+      border-radius: 20px;
+      padding: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("img/Suny.png");
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.18);
+      vertical-align: middle;
+
+    }
+
+    .humedad {
+      height: 200px;
+      margin-bottom: 80px;
+      width: 350px;
+      position: relative;
+      background-color: pink;
+      border-radius: 20px;
+      padding: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("img/Humedad.png");
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.18);
+      vertical-align: middle;
+    }
+
+    .iluminacion {
+      height: 100px;
+      margin-bottom: 80px;
+      width: 350px;
+      position: relative;
+      background-color: pink;
+      border-radius: 20px;
+      padding: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("img/Iluminacion.png");
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.18);
+      vertical-align: middle;
+    }
+
+    .altitud {
+      height: 100px;
+      margin-bottom: 80px;
+      width: 350px;
+      position: relative;
+      background-color: pink;
+      border-radius: 20px;
+      padding: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("img/Altitud.png");
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.18);
+      vertical-align: middle;
+    }
+
+    .presion {
+      height: 100px;
+      margin-bottom: 80px;
+      width: 350px;
+      position: relative;
+      background-color: pink;
+      border-radius: 20px;
+      padding: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("img/Presion.png");
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.18);
+      vertical-align: middle;
+    }
+
+    .indiceuv {
+      height: 100px;
+      margin-bottom: 80px;
+      width: 350px;
+      position: relative;
+      background-color: pink;
+      border-radius: 20px;
+      padding: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url("img/UV.png");
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.18);
+      vertical-align: middle;
+    }
+
+    /* Customize the label (the container) */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default radio button */
+    .container input ~.form-check-input{
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    .form-check-label {
+      padding-left: 20px;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input~.checkmark {
+      background-color: #ccc;
+    }
+
+
+    /* When the radio button is checked, add a blue background */
+    .container input:checked~.checkmark {
+      background-color: #2196F3;
+    }
+
+    .container input:checked~#checkmark1 {
+      background-color: #4CBB17;
+    }
+
+    .container input:checked~#checkmark2 {
+      background-color: #FCE205;
+    }
+
+    .container input:checked~#checkmark3 {
+      background-color: #E60000;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked~.checkmark:after {
+      display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .semaforo {
+      height: 80px;
+      background: #E6E6E6;
+    }
+
+    .servo {
+      height: 80px;
+      background: #EBF5FB;
+    }
+  </style>
+  <title>weatherweb</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-12 col-md-10 col-lg-10 slider">
+        <h4 class="text-center">Weather Station</h4>
+      </div>
+    </div>
+
+
+    <div class="row justify-content-around">
+      <div class="col-12 col-md-4 temperatura d-flex align-items-center ">
+        <div class="subCategoria ">
+          <h3 class="subtitulo text-white">Temperatura</h3>
+          <h3 id="TemperaturaId" class="text-white"></h3>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 humedad d-flex align-items-center">
+        <div class="subCategoria ">
+          <h3 class="subtitulo text-white">Presion</h3>
+          <h3 id="PresionId" class="text-white"></h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="js/HiFirebase.js"></script>
+
+
+
+</body>
+
+</html>

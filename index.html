@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body style="background-color: rgba(25, 25, 25, 1);">
+    <!-- Start your project here-->
+    <div class="row d-flex justify-content-center py-5">
+  <div class="col-md-8 col-lg-6 col-xl-5">
+
+    <div class=" text-body" style=" border-radius: 35px;">
+      <div class="p-4" style="background-color: rgba(25, 25, 25, 1);">
+
+        <div class="d-flex">
+          <h6 class="flex-grow-1">STEM</h6>
+          <h6 id="time">15:07</h6>
+        </div>
+
+        <div class="d-flex flex-column text-center mt-5 mb-4">
+          <h6 class="display-4 mb-0 font-weight-bold" style="color: #ffffff" id="temperature"> 13°C </h6>
+          <span class="small" style="color: #aaaaaa">Huerto</span>
+        </div>
+
+        <div class="d-flex align-items-center">
+          <div class="flex-grow-1" style="font-size: 1rem;">
+            <!--
+            <div><i class="fas fa-wind fa-fw" style="color: #aaaaaa;"></i> <span class="ms-1" style="color: #ffffff"> 40 km/h
+              </span>
+            </div>
+          -->
+            <div><i class="fas fa-tint fa-fw" style="color: #aaaaaa;"></i> <span class="ms-1" style="color: #ffffff" id="humedad">84%</span></div>
+              <!--
+            <div><i class="fas fa-sun fa-fw" style="color: #aaaaaa;"></i> <span class="ms-1" style="color: #ffffff"> 0.2h
+              </span></div>-->
+          </div>
+          <div>
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu3.webp"
+              width="100px">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+        <!-- Custom scripts -->
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
